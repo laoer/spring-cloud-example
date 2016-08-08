@@ -1,0 +1,4 @@
+configserver:
+  image: jinjiang/config
+  ports:
+   - "8990:8990"
