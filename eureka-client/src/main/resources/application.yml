@@ -1,0 +1,4 @@
+zuul:
+  routes:
+    hello-service: /q/**
+    base-service: /b/**
