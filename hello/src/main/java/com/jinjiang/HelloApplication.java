@@ -33,7 +33,8 @@ public class HelloApplication {
     @ResponseBody
     @RequestMapping(value = "/msg/{msg}")
     public String message(@PathVariable(value = "msg") String msg) {
-        msgSource.sendMessage(msg);
+        HelloMsg helloMsg = new HelloMsg("Tim", msg);
+        msgSource.sendMessage(helloMsg);
         return "Msg sent";
     }
 

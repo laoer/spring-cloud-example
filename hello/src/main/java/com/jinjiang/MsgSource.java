@@ -20,7 +20,7 @@ public class MsgSource {
     @Autowired
     MessageChannel messageChannel;
 
-    public void sendMessage(String msg) {
-        this.messageChannel.send(MessageBuilder.withPayload("Msg : " + msg + " Time : " + System.currentTimeMillis()).build());
+    public void sendMessage(HelloMsg helloMsg) {
+        this.messageChannel.send(MessageBuilder.withPayload(helloMsg).build());
     }
 }

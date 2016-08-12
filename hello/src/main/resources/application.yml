@@ -3,10 +3,10 @@ spring:
     stream:
       kafka:
         binder:
-          brokers: 192.168.2.193
-          defaultBrokerPort: 9092
-          zk-nodes: 192.168.2.193
-          defaultZkPort: 2181
+          brokers: ${kafka.binder.brokers}
+          #defaultBrokerPort: 9092
+          zk-nodes: ${kafka.binder.zkNodes}
+          #defaultZkPort: 2181
       bindings:
         output:
-          destination: mydest
+          destination: ${kafka.destination}
