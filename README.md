@@ -9,3 +9,4 @@
 - base-service Mybatis数据查询的简单服务，包含消息接收端
 - eureka-client 客户端调用程序
 - docker docker-compose文件
+- hystrix-dashboard Hystrix Dashboard
