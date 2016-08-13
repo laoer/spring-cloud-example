@@ -10,4 +10,5 @@ spring:
       bindings:
         output:
           destination: ${kafka.destination}
-          #content-type: application/json
+
+
