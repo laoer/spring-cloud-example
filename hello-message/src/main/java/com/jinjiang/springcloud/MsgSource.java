@@ -1,5 +1,6 @@
-package com.jinjiang;
+package com.jinjiang.springcloud;
 
+import com.jinjiang.HelloMsg;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.annotation.Output;
@@ -9,9 +10,8 @@ import org.springframework.messaging.MessageChannel;
 import org.springframework.stereotype.Service;
 
 /**
- * Created by Laoer on 16/8/12.
+ * Created by Laoer on 16/8/14.
  */
-
 @Service
 @EnableBinding(Source.class)
 public class MsgSource {
@@ -23,4 +23,5 @@ public class MsgSource {
     public void sendMessage(HelloMsg helloMsg) {
         this.messageChannel.send(MessageBuilder.withPayload(helloMsg).build());
     }
+
 }

@@ -1,5 +1,7 @@
 package com.jinjiang;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
@@ -17,13 +19,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @EnableDiscoveryClient
 public class HelloApplication {
 
+    private static final Logger logger = LoggerFactory.getLogger(HelloApplication.class);
+
     @Bean
     AlwaysSampler alwaysSampler() {
         return new AlwaysSampler();
     }
 
-    @Autowired
-    MsgSource msgSource;
+//    @Autowired
+//    MsgSource msgSource;
 
     @Value("${message}")
     String message;
@@ -31,15 +35,15 @@ public class HelloApplication {
     @ResponseBody
     @RequestMapping(value = "/hello/{name}")
     public String hello(@PathVariable(value = "name") String name) {
-
+        logger.info("Message log:" + name);
         return "Hello " + message + name;
     }
 
     @ResponseBody
     @RequestMapping(value = "/msg/{msg}")
     public String message(@PathVariable(value = "msg") String msg) {
-        HelloMsg helloMsg = new HelloMsg("Tim", msg);
-        msgSource.sendMessage(helloMsg);
+//        HelloMsg helloMsg = new HelloMsg("Tim", msg);
+//        msgSource.sendMessage(helloMsg);
         return "Msg sent";
     }
 

@@ -1,0 +1,25 @@
+spring:
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: ${kafka.binder.brokers}
+          #defaultBrokerPort: 9092
+          zk-nodes: ${kafka.binder.zkNodes}
+          #defaultZkPort: 2181
+      bindings:
+        output:
+          destination: ${kafka.destination}
+
+
+logging:
+  level.root: info
+  level.org.springframework.cloud: DEBUG
+  level.org.springframework.cloud.sleuth: TRACE
+  level.org.springframework.cloud.sleuth.log: DEBUG
+  level.org.springframework.cloud.sleuth.trace: DEBUG
+  level.org.springframework.cloud.sleuth.instrument.rxjava: DEBUG
+  level.com.jinjiang: trace
+
+
+
