@@ -11,6 +11,10 @@ spring:
         output:
           destination: ${kafka.destination}
 
+  rabbitmq:
+    addresses: ${rabbitmq.address}
+    username: ${rabbitmq.username}
+    password: ${rabbitmq.password}
 
 logging:
   level.root: info
