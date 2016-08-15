@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.sleuth.sampler.AlwaysSampler;
+//import org.springframework.cloud.sleuth.sampler.AlwaysSampler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,10 +21,10 @@ public class HelloApplication {
 
     private static final Logger logger = LoggerFactory.getLogger(HelloApplication.class);
 
-    @Bean
-    AlwaysSampler alwaysSampler() {
-        return new AlwaysSampler();
-    }
+//    @Bean
+//    AlwaysSampler alwaysSampler() {
+//        return new AlwaysSampler();
+//    }
 
 //    @Autowired
 //    MsgSource msgSource;

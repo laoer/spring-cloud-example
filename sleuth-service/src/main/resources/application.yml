@@ -17,8 +17,10 @@ spring:
     stream:
       kafka:
         binder:
-          zkNodes: 192.168.2.193
-          brokers: 192.168.2.193
+          zkNodes: ${kafka.binder.brokers}
+          defaultBrokerPort: ${kafka.binder.defaultBrokerPort}
+          brokers: ${kafka.binder.zkNodes}
+          defaultZkPort: ${kafka.binder.defaultZkPort}
           headers:
             - X-B3-TraceId
             - X-B3-SpanId

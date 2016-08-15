@@ -4,9 +4,9 @@ spring:
       kafka:
         binder:
           brokers: ${kafka.binder.brokers}
-          #defaultBrokerPort: 9092
+          defaultBrokerPort: ${kafka.binder.defaultBrokerPort}
           zk-nodes: ${kafka.binder.zkNodes}
-          #defaultZkPort: 2181
+          defaultZkPort: ${kafka.binder.defaultZkPort}
       bindings:
         output:
           destination: ${kafka.destination}

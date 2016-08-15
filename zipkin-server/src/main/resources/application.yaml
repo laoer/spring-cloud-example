@@ -3,8 +3,10 @@ spring:
     stream:
       kafka:
         binder:
-          zkNodes: 192.168.2.193
-          brokers: 192.168.2.193
+          zkNodes: ${kafka.binder.brokers}
+          defaultBrokerPort: ${kafka.binder.defaultBrokerPort}
+          brokers: ${kafka.binder.zkNodes}
+          defaultZkPort: ${kafka.binder.defaultZkPort}
           headers:
             - X-B3-TraceId
             - X-B3-SpanId
@@ -12,3 +14,15 @@ spring:
             - X-B3-ParentSpanId
             - X-Span-Name
             - X-Process-Id
+
+sleuth:
+   # not use sleuth stream to trace zipkin server itself
+    enabled: false
+    #refer to org.springframework.cloud.sleuth.instrument.hystrix.SleuthHystrixAutoConfiguration.java
+    hystrix:
+      strategy:
+        enabled: false
+
+zipkin:
+  storage:
+    type: mem #mysql #mem
