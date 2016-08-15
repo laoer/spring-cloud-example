@@ -14,6 +14,10 @@ spring:
             - X-B3-ParentSpanId
             - X-Span-Name
             - X-Process-Id
+  rabbitmq:
+    addresses: ${rabbitmq.address}
+    password: ${rabbitmq.username}
+    username: ${rabbitmq.password}
 
 sleuth:
    # not use sleuth stream to trace zipkin server itself

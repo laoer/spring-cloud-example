@@ -28,6 +28,11 @@ spring:
             - X-B3-ParentSpanId
             - X-Span-Name
             - X-Process-Id
+  rabbitmq:
+    addresses: ${rabbitmq.address}
+    username: ${rabbitmq.username}
+    password: ${rabbitmq.password}
+
 
 logging:
   level.root: info
