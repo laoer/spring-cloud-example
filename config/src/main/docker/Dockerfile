@@ -6,4 +6,4 @@ EXPOSE 8990
 # Expose our log volumes
 VOLUME ["/data"]
 
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","--log.path=/data","/app.jar"]
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar","--log.path=/data"]
