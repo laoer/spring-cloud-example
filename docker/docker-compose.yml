@@ -4,3 +4,5 @@ configserver:
    - "8990:8990"
   extra_hosts:
    - "git.ejinjiang.com:192.168.4.2"
+  volumes:
+   - /srv/docker/springcloud:/data

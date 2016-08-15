@@ -3,4 +3,7 @@ VOLUME /tmp
 ADD config-0.0.1.jar app.jar
 RUN bash -c 'touch /app.jar'
 EXPOSE 8990
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
+# Expose our log volumes
+VOLUME ["/data"]
+
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","--log.path=/data","/app.jar"]
