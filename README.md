@@ -6,9 +6,10 @@
 - config-file-simple 配置文件
 - eureka-server Eureka服务
 - hello Hello服务
-- hello-message Hello消息服务，消息发送
+- hello-message Hello消息服务，消息发送端
 - base-service Mybatis数据查询的简单服务，包含消息接收端
 - eureka-client 客户端调用程序
 - docker docker-compose文件
 - hystrix-dashboard Hystrix Dashboard
-- zipkin-server Zipkin服务
+- zipkin-server Zipkin服务，采用Stream方式，后端Kafka
+- sleuth-service 简单Hello服务，采用Sleuth，Stream方式通过Kafka，跟踪日志到Zipkin平台
