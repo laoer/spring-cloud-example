@@ -13,4 +13,4 @@
 - hystrix-dashboard Hystrix Dashboard
 - zipkin-server Zipkin服务，采用Stream方式，后端RabbitMQ(可选Kafka)
 - sleuth-service 简单Hello服务，采用Sleuth，Stream方式通过RabbitMQ(可选Kafka)，跟踪日志到Zipkin平台
-- zuul-server Zuul只能路由服务
+- zuul-server Zuul智能路由服务
