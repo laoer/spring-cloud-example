@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-@Controller
+//@Controller
 @SpringBootApplication
 @EnableDiscoveryClient
 public class HelloApplication {
@@ -26,26 +26,21 @@ public class HelloApplication {
 //        return new AlwaysSampler();
 //    }
 
-//    @Autowired
-//    MsgSource msgSource;
 
-    @Value("${message}")
-    String message;
+//    @ResponseBody
+//    @RequestMapping(value = "/hello/{name}")
+//    public String hello(@PathVariable(value = "name") String name) {
+//        logger.info("Message log:" + name);
+//        return "Hello " + message + name;
+//    }
 
-    @ResponseBody
-    @RequestMapping(value = "/hello/{name}")
-    public String hello(@PathVariable(value = "name") String name) {
-        logger.info("Message log:" + name);
-        return "Hello " + message + name;
-    }
-
-    @ResponseBody
-    @RequestMapping(value = "/msg/{msg}")
-    public String message(@PathVariable(value = "msg") String msg) {
+//    @ResponseBody
+//    @RequestMapping(value = "/msg/{msg}")
+//    public String message(@PathVariable(value = "msg") String msg) {
 //        HelloMsg helloMsg = new HelloMsg("Tim", msg);
 //        msgSource.sendMessage(helloMsg);
-        return "Msg sent";
-    }
+//        return "Msg sent";
+//    }
 
     public static void main(String[] args) {
         SpringApplication.run(HelloApplication.class, args);
