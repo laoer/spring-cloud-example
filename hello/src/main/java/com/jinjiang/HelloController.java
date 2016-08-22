@@ -36,8 +36,8 @@ public class HelloController {
     @ResponseBody
     @RequestMapping(value = "/pass")
     public String password() {
-        boolean result = BCrypt.checkpw("zhouhuan", "$2a$10$4adATFb9HJFsy4NjHw614e/fCJSmpSV0DTnUNlgHbeuZZPbdu/dfG");
-        String password = BCrypt.hashpw("zhouhuan", BCrypt.gensalt());
+        boolean result = BCrypt.checkpw("password", "$2a$10$4adA");
+        String password = BCrypt.hashpw("password", BCrypt.gensalt());
         System.out.println(password);
         return String.valueOf(result);
     }
