@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpSession;
 import java.util.Map;
 
 /**
@@ -39,17 +40,24 @@ public class HelloController {
     @ResponseBody
     @RequestMapping(value = "/pass")
     public String password() {
-        boolean result = BCrypt.checkpw("password", "$2a$10$4adA");
+        boolean result = false;
+        try {
+            result = BCrypt.checkpw("password", "$2a$10$4adA");
+        } catch (Exception e) {
+            System.out.println(e);
+        }
         String password = BCrypt.hashpw("password", BCrypt.gensalt());
-        System.out.println(password);
-        return String.valueOf(result);
+        //System.out.println(password);
+        return String.valueOf(result) + " " + password;
     }
 
 
     @RequestMapping(value = "/welcome", method = RequestMethod.GET)
-    public String welcome(Map<String, Object> model) {
+    public String welcome(Map<String, Object> model, HttpSession session) {
         model.put("name", "Laoer");
         model.put("msg", "你好!");
+        session.setAttribute("name", "Tim");
+        session.setAttribute("time", System.currentTimeMillis());
         return "welcome";
     }
 
