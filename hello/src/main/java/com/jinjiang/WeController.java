@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 /**
@@ -12,13 +13,13 @@ import javax.servlet.http.HttpSession;
  */
 
 @Controller
-public class WeController {
+public class WeController extends BaseController {
 
     @ResponseBody
     @RequestMapping(value = "/sess", method = RequestMethod.GET)
-    public String we(HttpSession session) {
-        String name = (String) session.getAttribute("name");
-        Long time = (Long) session.getAttribute("time");
+    public String we(HttpServletRequest request) {
+        String name = (String) this.getSessionAttribute(request, "name");
+        Long time = (Long) this.getSessionAttribute(request, "time");
         return name + " " + time;
     }
 

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.Map;
 
@@ -15,7 +16,7 @@ import java.util.Map;
  * Created by Laoer on 16/8/19.
  */
 @Controller
-public class HelloController {
+public class HelloController extends BaseController {
 
     //    @Autowired
 //    MsgSource msgSource;
@@ -53,11 +54,13 @@ public class HelloController {
 
 
     @RequestMapping(value = "/welcome", method = RequestMethod.GET)
-    public String welcome(Map<String, Object> model, HttpSession session) {
+    public String welcome(Map<String, Object> model, HttpServletRequest request) {
         model.put("name", "Laoer");
         model.put("msg", "你好!");
-        session.setAttribute("name", "Tim");
-        session.setAttribute("time", System.currentTimeMillis());
+        //session.setAttribute("name", "Tim");
+        //session.setAttribute("time", System.currentTimeMillis());
+        this.setSessionAttribute(request, "name", "Tim");
+        this.setSessionAttribute(request, "time", System.currentTimeMillis());
         return "welcome";
     }
 
